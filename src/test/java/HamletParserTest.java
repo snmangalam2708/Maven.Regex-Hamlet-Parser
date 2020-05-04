@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.io.FileNotFoundException;
 
+import static org.junit.Assert.*;
+
 public class HamletParserTest {
     private String hamletText;
     private HamletParser hamletParser;
@@ -16,42 +18,30 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHamletToLeon() {
-        Boolean expected = false;
-        String noHamlet = hamletParser.replaceHamlet();
-        Boolean actual = noHamlet.contains("Hamlet");
-        Assert.assertEquals(expected, actual);
+
+        Assert.assertFalse(hamletParser.replaceHamlet().contains("Hamlet"));
     }
 
     @Test
     public void testChangeHoratioToTariq() {
-        Boolean expected = false;
-        String noHamlet = hamletParser.replaceHamlet();
-        Boolean actual = noHamlet.contains("Hamlet");
-        Assert.assertEquals(expected, actual);
 
+        Assert.assertFalse(hamletParser.replaceHoratio().contains("Horatio"));
     }
 
     @Test
     public void testFindHoratio() {
-        Boolean expected = true;
-        Boolean actual = hamletText.contains("Horatio");
-        Assert.assertEquals(expected, actual);
+
+        Assert.assertTrue(hamletText.contains("Horatio"));
     }
 
     @Test
     public void testFindHamlet() {
-        Boolean expected = true;
-        Boolean actual = hamletText.contains("Hamlet");
-        Assert.assertEquals(expected, actual);
+
+        Assert.assertTrue(hamletText.contains("Hamlet"));
     }
 
     @Test
-    public void findFile () throws FileNotFoundException {
+    public void testFindFile() throws FileNotFoundException {
         hamletParser.findHamlet();
-    }
-
-    @Test
-    public void replaceHamlet () {
-        hamletParser.replaceHamlet();
     }
 }

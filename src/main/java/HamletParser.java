@@ -1,5 +1,3 @@
-import com.sun.xml.internal.rngom.binary.PatternBuilder;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,6 +13,7 @@ public class HamletParser {
     private String hamletData;
     private Pattern pattern;
     private Matcher matcher;
+
 
     public HamletParser(){
         this.hamletData = loadFile();
@@ -39,21 +38,23 @@ public class HamletParser {
         return result.toString();
     }
 
-    public String replaceHamlet () {
+    public String replaceHamlet(){
 
         String regex = "Hamlet";
+
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(hamletData);
-        String newHamlet  = matcher.replaceAll(("Leon"));
+        String newHamlet = matcher.replaceAll("Leon");
         return newHamlet;
-
     }
 
-    public String replaceHoratio () {
+    public String replaceHoratio(){
+
         String regex = "Horatio";
+
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(hamletData);
-        String newHamlet  =matcher.replaceAll(("Tariq"));
+        String newHamlet = matcher.replaceAll("Tariq");
         return newHamlet;
     }
 
@@ -62,7 +63,6 @@ public class HamletParser {
     }
 
     public String getHamletData(){
-
         return hamletData;
     }
 
